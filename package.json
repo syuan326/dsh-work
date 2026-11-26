@@ -1,0 +1,25 @@
+{
+  "name": "@local/dsh-workspace-agent-modes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Work and personal Agent presets with separate workspace tools",
+  "engines": { "dsh": "0.2.2-rc.3" },
+  "exports": {
+    ".": "./ui.js",
+    "./mask": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["index.js", "ui.js", "client.js", "cordis.patch.yml", "locale/*.json", "icon.svg"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}
