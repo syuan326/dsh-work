@@ -1,0 +1,4 @@
+- insert:
+    - id: split-notes
+      name: '@local/dsh-split-notes'
+      config: {}

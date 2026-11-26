@@ -1,25 +1,54 @@
 {
-  "name": "@local/dsh-workspace-agent-modes",
-  "version": "1.0.0",
+  "name": "@local/dsh-personal-workspace",
+  "version": "1.1.0",
   "private": true,
+  "description": "Work and personal workspace tools, sidebar views, and Agent modes for DeepSeek Harness",
   "type": "module",
-  "description": "Work and personal Agent presets with separate workspace tools",
-  "engines": { "dsh": "0.2.2-rc.3" },
   "exports": {
-    ".": "./ui.js",
-    "./mask": "./index.js",
+    ".": "./index.mjs",
     "./client": "./client.js",
-    "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json",
-    "./icon": "./icon.svg"
+    "./icon": "./icon.svg",
+    "./mask": "./modules/modes/mask.mjs",
+    "./package.json": "./package.json"
   },
-  "files": ["index.js", "ui.js", "client.js", "cordis.patch.yml", "locale/*.json", "icon.svg"],
+  "files": [
+    "index.mjs",
+    "client.js",
+    "modules/*/*.mjs",
+    "modules/*/*.js",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test modules/*/test/*.test.mjs test/*.test.mjs",
+    "build:client": "node scripts/build-client.mjs"
+  },
+  "dependencies": {
+    "imapflow": "^1.0.0",
+    "mailparser": "^3.7.0",
+    "nodemailer": "^7.0.0",
+    "zod": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22",
+    "dsh": "0.2.2-rc.3"
+  },
   "dsh": {
-    "bundle": { "patch": "./cordis.patch.yml" },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
     "client": {
       "platform": "web",
       "immediately": true,
-      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
     }
   }
 }

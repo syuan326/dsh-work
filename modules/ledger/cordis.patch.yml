@@ -1,0 +1,4 @@
+- insert:
+    - id: personal-ledger
+      name: '@local/personal-ledger'
+      config: {}

@@ -1,0 +1,13 @@
+{
+  "name": "@local/dsh-split-notes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Separate personal and work notes with Markdown and revision history",
+  "exports": {".": "./index.mjs", "./client": "./client.js", "./locale/*.json": "./locale/*.json", "./icon": "./icon.svg"},
+  "files": ["*.mjs", "client.js", "cordis.patch.yml", "locale", "icon.svg", "README.md"],
+  "scripts": {"test": "node --test test/*.test.mjs"},
+  "dependencies": {"zod": "4.6.7"},
+  "engines": {"node": ">=22", "dsh": "0.2.2-rc.3"},
+  "dsh": {"bundle": {"patch": "./cordis.patch.yml"}, "client": {"platform": "web", "immediately": true, "inject": ["@deepseek-ai/dsh-client-ui-sidebar", "@deepseek-ai/dsh-client-ui-layout"]}}
+}

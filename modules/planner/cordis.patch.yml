@@ -1,0 +1,4 @@
+- insert:
+    - id: split-planner
+      name: '@local/dsh-split-planner'
+      config: {}

@@ -1,17 +1,13 @@
-// Run in a DSH shell: node --test workspace-agent-modes/isolation.test.mjs
+// Run in a DSH shell: node --test test/isolation.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createRequire } from 'node:module';
-import { pathToFileURL } from 'node:url';
-import * as mask from './index.js';
+import * as mask from '../modules/modes/mask.mjs';
+import { dsh } from '../modules/mail/runtime.mjs';
+import { presetAllowed } from '../modules/mail/tool-gate.mjs';
 
-const req = createRequire(process.env.DSH_INSTALL_DIR + '/package.json');
-const load = s => import(pathToFileURL(req.resolve('@deepseek-ai/' + s)));
 const [{ Context }, { createScope }, { ToolsService }, { SystemPrompt }] = await Promise.all(
-  ['cordis', 'dsh-scope', 'dsh-tools', 'dsh-system-prompt'].map(load),
+  ['cordis', 'dsh-scope', 'dsh-tools', 'dsh-system-prompt'].map(name => dsh('@deepseek-ai/' + name)),
 );
-const { presetAllowed } = await import(pathToFileURL(process.env.DSH_PROFILE_DIR
-  + '/node_modules/@local/dsh-personal-workspace/modules/mail/tool-gate.mjs'));
 
 test('workspace scopes filter both schema admission and execution lookup', async () => {
   const host = new Context();

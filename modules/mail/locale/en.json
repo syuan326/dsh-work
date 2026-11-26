@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Split mail",
+    "description": "Separate personal and work mail, each with its own sidebar page, configuration and preset-scoped tools, analyzed by the DSH default model.",
+    "detail": "docs/DETAIL.md"
+  }
+}

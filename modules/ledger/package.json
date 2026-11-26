@@ -1,0 +1,24 @@
+{
+  "name": "@local/personal-ledger",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Host 持久化的个人账本，提供左侧页面和 LLM 查询／记账工具。",
+  "scripts": { "test": "node --test test/*.test.mjs", "check": "node --check index.js && node --check client.js && node --check core.mjs && node --check tools.mjs && node --check ui-api.mjs" },
+  "dependencies": { "zod": "^4.6.7" },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["index.js", "client.js", "core.mjs", "tools.mjs", "ui-api.mjs", "cordis.patch.yml", "locale/*.json", "docs", "icon.svg"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-sidebar", "@deepseek-ai/dsh-client-locale"]
+    }
+  }
+}

@@ -1,7 +1,12 @@
-# Standard Web composition plus a preset-scoped workspace tool mask and picker UI.
 - insert:
-    - id: workspace-modes-ui
-      name: '@local/dsh-workspace-agent-modes'
+    - id: personal-workspace
+      name: '@local/dsh-personal-workspace'
+      config:
+        timezone: Asia/Shanghai
+        personalMail:
+          presets: [personal-mode]
+        workMail:
+          presets: [work-mode]
     - id: preset-work-mode
       name: '@deepseek-ai/dsh-agent-preset'
       config:
@@ -138,7 +143,7 @@
             name: '@deepseek-ai/dsh-plugin-market/tools'
             disabled: true
           - id: workspace-mode-tool-mask
-            name: '@local/dsh-workspace-agent-modes/mask'
+            name: '@local/dsh-personal-workspace/mask'
             config:
               space: work
     - id: preset-personal-mode
@@ -277,14 +282,6 @@
             name: '@deepseek-ai/dsh-plugin-market/tools'
             disabled: true
           - id: workspace-mode-tool-mask
-            name: '@local/dsh-workspace-agent-modes/mask'
+            name: '@local/dsh-personal-workspace/mask'
             config:
               space: personal
-- id: personal-workspace
-  name: '@local/dsh-personal-workspace'
-  config:
-    timezone: Asia/Shanghai
-    personalMail:
-      presets: [personal-mode]
-    workMail:
-      presets: [work-mode]

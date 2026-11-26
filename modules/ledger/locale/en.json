@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Personal ledger",
+    "description": "Manage income, expenses, budgets, savings goals, debts and reimbursements from the DSH sidebar. Data is persisted by the DSH Host. LLM tools can query and explicitly requested entries can be added, but cannot edit or delete records. Supports v2 JSON import preview and export; no automatic synchronization or background reminder delivery.",
+    "detail": "docs/DETAIL.md"
+  }
+}

@@ -1,0 +1,15 @@
+# Installs the mail Host plugin and the two independent tool rows. Each tool row
+# lists the Agent presets allowed to use it; edit `presets` in the Plugins page
+# (or here) so a preset sees exactly one mail space.
+- insert:
+    - id: split-mail
+      name: '@local/dsh-split-mail'
+      config: {}
+    - id: split-mail-personal-tools
+      name: '@local/dsh-split-mail/personal-tools'
+      config:
+        presets: []
+    - id: split-mail-work-tools
+      name: '@local/dsh-split-mail/work-tools'
+      config:
+        presets: []

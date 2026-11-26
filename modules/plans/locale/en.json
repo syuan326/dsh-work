@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Personal and work plans",
+    "description": "Plan books from the source project, rebuilt as a DSH plugin: two sidebar entries for personal and work plans, Markdown documents, daily or weekly schedules, pause and resume, a check-in calendar, completion rate and streaks. Personal and work spaces stay isolated, and the Agent gets separate plans_personal and plans_work tools. No automatic reminders and no automatic import of source data."
+  }
+}
